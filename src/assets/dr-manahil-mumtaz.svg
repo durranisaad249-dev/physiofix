@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bgMM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f94ad"/>
+      <stop offset="100%" stop-color="#196e67"/>
+    </linearGradient>
+    <linearGradient id="hijabMM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f6074"/>
+      <stop offset="100%" stop-color="#0e2a35"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgMM)"/>
+  <path d="M80 380 C80 280 130 235 200 235 C270 235 320 280 320 380 Z" fill="#ffffff" opacity="0.95"/>
+  <path d="M115 250 C95 300 90 345 95 385 L150 385 C140 330 145 280 168 245 Z" fill="url(#hijabMM)"/>
+  <path d="M285 250 C305 300 310 345 305 385 L250 385 C260 330 255 280 232 245 Z" fill="url(#hijabMM)"/>
+  <path d="M125 175 C125 120 158 90 200 90 C242 90 275 120 275 175 C275 210 270 235 255 252 C235 230 165 230 145 252 C130 235 125 210 125 175 Z" fill="url(#hijabMM)"/>
+  <circle cx="200" cy="190" r="62" fill="#f3d9c4"/>
+  <path d="M140 175 C140 140 165 120 200 120 C235 120 260 140 260 175 C260 178 255 150 200 150 C145 150 140 178 140 175 Z" fill="url(#hijabMM)"/>
+  <circle cx="178" cy="195" r="5" fill="#3a2a20"/>
+  <circle cx="222" cy="195" r="5" fill="#3a2a20"/>
+  <path d="M183 218 Q200 228 217 218" stroke="#a8674f" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M158 215 C155 195 165 175 200 175" stroke="#e0b899" stroke-width="2" fill="none" opacity="0.5"/>
+</svg>

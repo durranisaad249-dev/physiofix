@@ -1,0 +1,21 @@
+Place your two video files here with these exact names:
+
+  video-1.mp4
+  video-2.mp4
+
+How to get them from Facebook:
+1. Open Dr. Noman Khan's Facebook page in a browser.
+2. Open the video post you want to use.
+3. Click the three-dot menu (•••) on the post -> "Download" (if available),
+   or use a trusted Facebook video downloader tool by pasting the post's
+   public URL.
+4. Save the downloaded file into this folder (public/videos/) and rename
+   it to video-1.mp4 (and the second one to video-2.mp4).
+
+Recommended format: .mp4 (H.264), under ~30MB each for fast loading.
+If your files are large, compress them first (e.g. with HandBrake or
+ffmpeg: ffmpeg -i input.mp4 -vcodec libx264 -crf 28 video-1.mp4
+
+Once both files are in this folder, the video player on the Services page
+(src/components/VideoShowcase.jsx) will automatically pick them up at
+/videos/video-1.mp4 and /videos/video-2.mp4 -- no code changes needed.
