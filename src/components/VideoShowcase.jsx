@@ -1,27 +1,50 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Clapperboard } from 'lucide-react'
 
-// Official Facebook Video Plugin embed — the video stays hosted and played
-// directly on Facebook's own servers/player; this page only embeds it via
-// Facebook's public embed iframe (the same mechanism Facebook provides via
-// developers.facebook.com/docs/plugins/video-plugin).
-const reels = [
+// Official TikTok embed — the video stays hosted and played directly on
+// TikTok's own servers/player; this page only embeds it via TikTok's
+// public embed mechanism (the same <blockquote class="tiktok-embed"> +
+// embed.js pattern documented at developers.tiktok.com/doc/embed-videos).
+const videos = [
   {
-    id: 'reel-1',
-    url: 'https://www.facebook.com/reel/876987888301853',
+    id: 'tiktok-1',
+    videoId: '7603425823177198868',
+    username: 'physiofix.clinic.chd.4',
+    url: 'https://www.tiktok.com/@physiofix.clinic.chd.4/video/7603425823177198868',
   },
   {
-    id: 'reel-2',
-    url: 'https://www.facebook.com/reel/1362234512275803',
+    id: 'tiktok-2',
+    videoId: '7517993445735075080',
+    username: 'physiofix.clinic.chd.4',
+    url: 'https://www.tiktok.com/@physiofix.clinic.chd.4/video/7517993445735075080',
   },
 ]
 
-const buildEmbedSrc = (videoUrl) => {
-  const encoded = encodeURIComponent(videoUrl)
-  return `https://www.facebook.com/plugins/video.php?href=${encoded}&show_text=false&width=350&autoplay=false`
-}
-
 const VideoShowcase = () => {
+  useEffect(() => {
+    // Load TikTok's official embed script once, then ask it to (re)scan
+    // the page for tiktok-embed blockquotes whenever this section mounts.
+    const existingScript = document.getElementById('tiktok-embed-script')
+
+    const renderEmbeds = () => {
+      if (window.tiktokEmbed && typeof window.tiktokEmbed.lib?.render === 'function') {
+        window.tiktokEmbed.lib.render()
+      }
+    }
+
+    if (existingScript) {
+      renderEmbeds()
+      return
+    }
+
+    const script = document.createElement('script')
+    script.id = 'tiktok-embed-script'
+    script.src = 'https://www.tiktok.com/embed.js'
+    script.async = true
+    document.body.appendChild(script)
+  }, [])
+
   return (
     <section className="section-padding bg-primary-50/50">
       <div className="max-w-5xl mx-auto">
@@ -38,28 +61,33 @@ const VideoShowcase = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center">
-          {reels.map((reel, i) => (
+          {videos.map((video, i) => (
             <motion.div
-              key={reel.id}
+              key={video.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
               className="flex justify-center"
             >
-              <div className="rounded-2xl overflow-hidden shadow-card border border-primary-100 bg-black w-full max-w-[350px]">
-                <iframe
-                  src={buildEmbedSrc(reel.url)}
-                  title={`PhysioFix therapy session video ${i + 1}`}
-                  width="350"
-                  height="620"
-                  style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: '350px' }}
-                  scrolling="no"
-                  frameBorder="0"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  loading="lazy"
-                />
+              <div className="rounded-2xl overflow-hidden shadow-card border border-primary-100 bg-black w-full max-w-[350px] min-h-[620px]">
+                <blockquote
+                  className="tiktok-embed"
+                  cite={video.url}
+                  data-video-id={video.videoId}
+                  style={{ maxWidth: '350px', minWidth: '270px', margin: 0 }}
+                >
+                  <section>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`@${video.username}`}
+                      href={`https://www.tiktok.com/@${video.username}`}
+                    >
+                      @{video.username}
+                    </a>
+                  </section>
+                </blockquote>
               </div>
             </motion.div>
           ))}
