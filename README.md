@@ -13,6 +13,7 @@ Rawalpindi area.
 - Framer Motion
 - Lucide React Icons
 - EmailJS (real email delivery from the Contact and Appointment forms)
+- Facebook Video Plugin (official embed for the Services page video section)
 
 ## Getting Started
 
@@ -66,39 +67,29 @@ export const EMAILJS_APPOINTMENT_TEMPLATE_ID = 'YOUR_APPOINTMENT_TEMPLATE_ID'
 
 Save the file, restart `npm run dev`, and both forms will send real emails.
 
-## Adding the Two Facebook Videos (Required for Services Page)
+## Facebook Video Section (Services Page)
 
-The Services page includes a professional video player section ("Watch Our
-Therapy Sessions") with custom play/pause, progress bar, mute, and
-fullscreen controls. It expects two video files that are **not included**
-in this project — you need to add them yourself:
+The Services page includes a "Watch Our Therapy Sessions" section that
+embeds two Facebook reels directly using Facebook's official Video Plugin
+(`src/components/VideoShowcase.jsx`). The videos stay hosted on Facebook and
+play through Facebook's own embedded player — nothing is downloaded or
+re-hosted.
 
-1. Open Dr. Noman Khan's Facebook page and find the two videos you want to
-   feature.
-2. Download each video (use the post's "•••" menu → Download, if available,
-   or a trusted Facebook video downloader by pasting the post's public URL).
-3. Rename the files to exactly `video-1.mp4` and `video-2.mp4`.
-4. Place both files inside the `public/videos/` folder of this project
-   (there's a `PUT_VIDEOS_HERE.txt` file there with the same instructions).
+Currently embedded:
+- `https://www.facebook.com/reel/876987888301853`
+- `https://www.facebook.com/reel/1362234512275803`
 
-Once both files exist at `public/videos/video-1.mp4` and
-`public/videos/video-2.mp4`, the player will automatically load and play
-them — no code changes needed. If a video file is missing, the player shows
-a clean "video not found" placeholder instead of breaking the page.
+**Important:** Facebook's embed only works correctly if each reel's privacy
+setting is **Public**. If a reel is private or restricted, the embed box
+will appear blank for site visitors — double check the visibility setting
+on both reels in Facebook.
 
-Tip: keep each file under ~30MB for fast loading. If a video is larger,
-compress it first, e.g.:
-```bash
-ffmpeg -i input.mp4 -vcodec libx264 -crf 28 video-1.mp4
-```
+To swap in different videos later, just edit the `reels` array at the top of
+`src/components/VideoShowcase.jsx` with the new Facebook video/reel URLs.
 
 ## Project Structure
 
 ```
-public/
-└── videos/
-    └── PUT_VIDEOS_HERE.txt   (place video-1.mp4 and video-2.mp4 here)
-
 src/
 ├── assets/
 │   ├── dr-noman-khan.jpeg
@@ -115,7 +106,6 @@ src/
 │   ├── Stats.jsx
 │   ├── ServiceAreas.jsx
 │   ├── Services.jsx
-│   ├── VideoPlayer.jsx
 │   ├── VideoShowcase.jsx
 │   ├── About.jsx
 │   ├── Reviews.jsx
@@ -154,13 +144,13 @@ src/
   `https://www.facebook.com/share/19Hxm5ZcP2/`. The Twitter icon has been
   removed.
 - The About page features three therapists side by side: Dr. Noman Khan,
-  Dr. Manahil Mumtaz, and Dr. Muqadas. The two female therapists currently
-  use placeholder initial-based avatars (`dr-manahil-mumtaz.svg`,
-  `dr-muqadas.svg`) — replace these with real photos in `src/assets/` when
-  available, keeping the same filenames, or update the imports in
-  `src/pages/AboutPage.jsx`.
-- The Services page now states that both male and female physiotherapists
-  are available, and the Appointment form includes a "Preferred Therapist"
+  Dr. Manahil Mumtaz, and Dr. Muqadas. The two female therapists use
+  original illustrated avatars (`dr-manahil-mumtaz.svg`, `dr-muqadas.svg`)
+  depicting a professional woman wearing a hijab — replace these with real
+  photos in `src/assets/` when available, keeping the same filenames, or
+  update the imports in `src/pages/AboutPage.jsx`.
+- The Services page states that both male and female physiotherapists are
+  available, and the Appointment form includes a "Preferred Therapist"
   dropdown (No Preference / Female Therapist / Male Therapist) which is
   included in the email sent for each booking.
 - The homepage includes an "Areas We Serve" section (DHA, Bahria Town, and

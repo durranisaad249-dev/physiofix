@@ -1,23 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
   <defs>
-    <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgMQ" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#52b1c7"/>
       <stop offset="100%" stop-color="#1f6074"/>
     </linearGradient>
-    <linearGradient id="hijabM" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="hijabMQ" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#22778f"/>
-      <stop offset="100%" stop-color="#1c4352"/>
+      <stop offset="100%" stop-color="#163b46"/>
     </linearGradient>
   </defs>
-  <rect width="400" height="400" fill="url(#bgM)"/>
-  <path d="M80 380 C80 280 130 235 200 235 C270 235 320 280 320 380 Z" fill="#ffffff" opacity="0.95"/>
-  <path d="M115 250 C95 300 90 345 95 385 L150 385 C140 330 145 280 168 245 Z" fill="url(#hijabM)"/>
-  <path d="M285 250 C305 300 310 345 305 385 L250 385 C260 330 255 280 232 245 Z" fill="url(#hijabM)"/>
-  <path d="M125 175 C125 120 158 90 200 90 C242 90 275 120 275 175 C275 210 270 235 255 252 C235 230 165 230 145 252 C130 235 125 210 125 175 Z" fill="url(#hijabM)"/>
-  <circle cx="200" cy="190" r="62" fill="#e8c4a0"/>
-  <path d="M140 175 C140 140 165 120 200 120 C235 120 260 140 260 175 C260 178 255 150 200 150 C145 150 140 178 140 175 Z" fill="url(#hijabM)"/>
-  <circle cx="178" cy="195" r="5" fill="#3a2a20"/>
-  <circle cx="222" cy="195" r="5" fill="#3a2a20"/>
-  <path d="M183 218 Q200 228 217 218" stroke="#9c5d42" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M158 215 C155 195 165 175 200 175" stroke="#d9a87f" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <rect width="400" height="400" fill="url(#bgMQ)"/>
+
+  <!-- shoulders / coat -->
+  <path d="M75 365 C75 280 130 245 200 245 C270 245 325 280 325 365 Z" fill="#ffffff"/>
+  <path d="M150 250 L165 360 L235 360 L250 250 Z" fill="#eef6f6"/>
+  <circle cx="200" cy="252" r="6" fill="#dce9e9"/>
+  <circle cx="200" cy="275" r="6" fill="#dce9e9"/>
+
+  <!-- neck -->
+  <rect x="183" y="198" width="34" height="38" rx="14" fill="#e9bd92"/>
+
+  <!-- face -->
+  <ellipse cx="200" cy="170" rx="56" ry="64" fill="#edc59c"/>
+
+  <!-- hijab draping, slightly different fold/shape for visual distinction -->
+  <path d="M122 178 C110 100 152 48 200 48 C248 48 290 100 278 178
+           C278 202 266 224 250 234
+           L255 365 L322 365
+           C322 282 312 218 292 178
+           C304 92 258 32 200 32
+           C142 32 96 92 108 178
+           C88 218 78 282 78 365
+           L145 365 L150 234
+           C134 224 122 202 122 178 Z"
+        fill="url(#hijabMQ)"/>
+
+  <!-- side drape detail for distinct silhouette -->
+  <path d="M252 175 C262 230 256 290 244 350" stroke="#0e2a35" stroke-width="3" fill="none" opacity="0.22" stroke-linecap="round"/>
+
+  <!-- hijab front edge framing the face -->
+  <path d="M136 170 C133 108 162 62 200 62 C238 62 267 108 264 170
+           C264 197 248 224 200 224 C152 224 136 197 136 170 Z"
+        fill="none" stroke="#0e2a35" stroke-width="3" opacity="0.25"/>
+
+  <!-- eyebrows -->
+  <path d="M170 157 Q180 151 190 156" stroke="#4a3122" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M210 156 Q220 151 230 157" stroke="#4a3122" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- eyes -->
+  <ellipse cx="180" cy="170" rx="7" ry="9" fill="#33271d"/>
+  <ellipse cx="220" cy="170" rx="7" ry="9" fill="#33271d"/>
+
+  <!-- nose -->
+  <path d="M198 174 Q196 186 200 190" stroke="#c79567" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- smile -->
+  <path d="M180 202 Q200 216 220 202" stroke="#9c5546" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- blush -->
+  <ellipse cx="166" cy="190" rx="10" ry="6" fill="#e6a587" opacity="0.45"/>
+  <ellipse cx="234" cy="190" rx="10" ry="6" fill="#e6a587" opacity="0.45"/>
+
+  <!-- stethoscope -->
+  <path d="M165 307 C165 332 180 347 200 347 C220 347 235 332 235 307"
+        stroke="#1c4352" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="347" r="10" fill="#1c4352"/>
 </svg>
